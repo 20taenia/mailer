@@ -35,24 +35,18 @@ app.all('*', function(req, res, next) {
 });
 
 app.post('/email/register', jsonParser, function(req, res) {
-    try {
-        app.mailer.send('email', {
-            to: req.body.to, // REQUIRED. This can be a comma delimited string just like a normal email to field.
-            subject: 'Enodia Mail Service ✔' // REQUIRED.
-            // otherProperty: 'Other Property' // All additional properties are also passed to the template as local variables.
-        }, function(err) {
-            if (err) {
-                // handle error
-                console.log(err);
-                res.status(500).send('There was an error sending the email');
-            }
-            res.send('Email Sent');
-        });
-
-    } catch (err) {
-        console.log(e.stack);
-        res.status(500).send('Errorrrrr!!');
-    }
+    app.mailer.send('email', {
+        to: req.body.to, // REQUIRED. This can be a comma delimited string just like a normal email to field.
+        subject: 'Enodia Mail Service ✔' // REQUIRED.
+        // otherProperty: 'Other Property' // All additional properties are also passed to the template as local variables.
+    }, function(err) {
+        if (err) {
+            // handle error
+            console.log(err);
+            res.status(500).send('There was an error sending the email');
+        }
+        res.send('Email Sent');
+    });
 });
 
 
