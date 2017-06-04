@@ -35,6 +35,12 @@ app.all('*', function(req, res, next) {
 });
 
 app.post('/email/register', jsonParser, function(req, res) {
+    console.log('Request received', req);
+    if (!req.body) {
+        res.status(400).send('Invalid recipient');
+        return;
+    }
+    console.log('Sending mail to', req.body.to);
     app.mailer.send('email', {
         to: req.body.to, // REQUIRED. This can be a comma delimited string just like a normal email to field.
         subject: 'Enodia Mail Service ✔' // REQUIRED.
@@ -44,6 +50,7 @@ app.post('/email/register', jsonParser, function(req, res) {
             // handle error
             console.log(err);
             res.status(500).send('There was an error sending the email');
+            return;
         }
         res.send('Email Sent');
     });
