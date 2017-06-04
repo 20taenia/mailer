@@ -51,7 +51,7 @@ app.post('/email/register', jsonParser, function(req, res) {
         });
 
     } catch (err) {
-        console.log(err);
+        console.log(e.stack);
         res.status(500).send('Errorrrrr!!');
     }
 });
