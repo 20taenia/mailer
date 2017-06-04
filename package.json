@@ -1,0 +1,29 @@
+{
+  "name": "mailer",
+  "version": "1.0.0",
+  "description": "Enodia mail rest api",
+  "scripts": {
+    "start": "node bin/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/masque-app/mailer.git"
+  },
+  "keywords": [
+    "mail",
+    "rest",
+    "enodia"
+  ],
+  "author": "Enodia team",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://gitlab.com/masque-app/mailer/issues"
+  },
+  "homepage": "https://gitlab.com/masque-app/mailer#README",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "nodemailer": "^4.0.1"
+  }
+}
