@@ -23,22 +23,28 @@ var transporter = nodemailer.createTransport({
 
 function sendMail(req, res) {
     if (!req.body) return res.sendStatus(400);
-    var mailOptions = {
-        from: '"info@enodia.io" <info@enodia.io>', // sender address
-        to: req.body.to, // list of receivers
-        subject: 'Enodia Mail Service ✔', // Subject line
-        text: req.body.mail // plain text body
-    };
-    console.log('Sending email using mail options', mailOptions)
-    // send mail with defined transport object
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            res.sendStatus(500);
-            console.log(error);
-        }
-        res.sendStatus(200);
-        console.log('Message %s sent: %s', info.messageId, info.response);
-    });
+    try {
+
+        var mailOptions = {
+            from: '"info@enodia.io" <info@enodia.io>', // sender address
+            to: req.body.to, // list of receivers
+            subject: 'Enodia Mail Service ✔', // Subject line
+            text: req.body.mail // plain text body
+        };
+        console.log('Sending email using mail options', mailOptions);
+        // send mail with defined transport object
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                res.sendStatus(500);
+                console.log(error);
+            }
+            res.sendStatus(200);
+            console.log('Message %s sent: %s', info.messageId, info.response);
+        });
+    } catch (err) {
+        console.error('Failed sending email', err.stacktrace);
+
+    }
 }
 
 
