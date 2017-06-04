@@ -23,7 +23,7 @@
   "homepage": "https://gitlab.com/masque-app/mailer#README",
   "dependencies": {
     "body-parser": "^1.17.2",
-    "express": "^4.15.3",
+    "express": "^3.21.2",
     "express-mailer": "^0.3.1",
     "jade": "^1.11.0"
   }
