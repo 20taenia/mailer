@@ -45,7 +45,6 @@ app.post('/email/register', jsonParser, function(req, res) {
                 // handle error
                 console.log(err);
                 res.status(500).send('There was an error sending the email');
-                return;
             }
             res.send('Email Sent');
         });
