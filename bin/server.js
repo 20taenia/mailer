@@ -52,7 +52,7 @@ app.post('/email/register', jsonParser, function(req, res) {
 
     } catch (err) {
         console.log(err);
-        res.status(500).send('There was an error sending the email');
+        res.status(500).send('Errorrrrr!!');
     }
 });
 
